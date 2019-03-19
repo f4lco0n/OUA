@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@color/myTheme"
+    >
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+ <Spinner
+     android:id="@+id/spinner1"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:entries="@array/spinner_array"
+     />
+
+    <Spinner
+        android:id="@+id/spinner2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/spinner1"
+        android:layout_marginLeft="100px"
+        android:entries="@array/spinner_array" />
+
+    <Button
+    style="?android:attr/buttonStyleSmall"
+    android:id="@+id/add"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="+"
+    android:layout_toRightOf="@id/spinner2"
+    android:layout_marginLeft="50px"
+    android:textSize="50px"
+    android:onClick="add"
+    />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:id="@+id/subtract"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="-"
+        android:layout_toRightOf="@id/spinner2"
+        android:layout_below="@id/add"
+        android:layout_marginLeft="50px"
+        android:textSize="50px"
+        android:onClick="subtract"
+        />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:id="@+id/multiply"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="*"
+        android:layout_toRightOf="@id/spinner2"
+        android:layout_below="@id/subtract"
+        android:layout_marginLeft="50px"
+        android:textSize="50px"
+        android:onClick="multiply"
+        />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:id="@+id/divide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="/"
+        android:layout_toRightOf="@id/spinner2"
+        android:layout_below="@id/multiply"
+        android:layout_marginLeft="50px"
+        android:textSize="50px"
+        android:onClick="divide"
+        />
+
+    <TextView
+        android:id="@+id/result"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_toRightOf="@id/add"
+        android:layout_marginLeft="20dp"
+        android:text="Result"
+        />
+
+
+</RelativeLayout>
