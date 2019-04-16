@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">lab4-lists</string>
+    <string name="title">Marvel Heroes</string>
+    <string-array name="championOption">
+        <item>Heroes</item>
+        <item>Villains</item>
+        <item>Mercenaries</item>
+    </string-array>
+
+    <string-array name="heroOption">
+        <item>Hulk</item>
+        <item>Captain America</item>
+        <item>Iron Man</item>
+    </string-array>
+    <string name="hulk_txt">
+        HULK SMASH
+    </string>
+    <string name="captain_txt">
+        I am Captain America Bro
+    </string>
+    <string name="info">
+        App created for academy classes about Marvel
+    </string>
+</resources>
