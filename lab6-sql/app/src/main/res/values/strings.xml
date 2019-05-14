@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">sql</string>
+    <string name="title_activity_language_category">LanguageCategoryActivity</string>
+    <string name="favorites">Jezyki programowania</string>
+    <string name="favorite">Ulubiony</string>
+    <string-array name="options">
+        <item>Wybierz jezyk</item>
+
+    </string-array>
 </resources>

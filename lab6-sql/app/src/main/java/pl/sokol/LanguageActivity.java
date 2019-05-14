@@ -1,5 +1,6 @@
 package pl.sokol;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -10,7 +11,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class LanguageActivity extends AppCompatActivity {
+public class LanguageActivity extends Activity {
 
     public static final String EXTRA_LANGUAGENO = "languageNo";
 
@@ -24,11 +25,14 @@ public class LanguageActivity extends AppCompatActivity {
         try {
             SQLiteOpenHelper languageDatabaseHelper = new DatabaseHelper(this);
             SQLiteDatabase db = languageDatabaseHelper.getReadableDatabase();
-            Cursor cursor = db.query("LANGUAGE",new String[]{"NAME","DESCRIPTION"},
-                                    "_id = ?",new String[] {Integer.toString(languageNo)},
+            Cursor cursor = db.query("LANGUAGE",
+                                            new String[]{"NAME","DESCRIPTION"},
+                                    "_id = ?",
+                                            new String[] {Integer.toString(languageNo)},
                                     null,null,null);
 
             if(cursor.moveToFirst()){
+
                 String nameText = cursor.getString(0);
                 String descriptionText = cursor.getString(1);
 
@@ -41,7 +45,7 @@ public class LanguageActivity extends AppCompatActivity {
             cursor.close();
             db.close();
         } catch (SQLiteException e){
-            Toast toast = Toast.makeText(this,"Baza danych jest niedostepna",Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(this,"Baza danych jest niedostepna (LanguageActivity)",Toast.LENGTH_SHORT);
             toast.show();
         }
 

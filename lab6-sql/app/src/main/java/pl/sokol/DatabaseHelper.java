@@ -9,7 +9,7 @@ import android.support.annotation.Nullable;
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DB_NAME = "db";
-    private static final int DB_VERSION = 2;
+    private static final int DB_VERSION = 1;
 
 
     public DatabaseHelper(Context context) {
@@ -24,14 +24,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        updateMyDatabase(db,oldVersion,newVersion);
 
-    }
-
-    private static void insertLanguage(SQLiteDatabase db, String name, String description){
-        ContentValues languageValues = new ContentValues();
-        languageValues.put("NAME",name);
-        languageValues.put("DESCRIPTION",description);
-        db.insert("LANGUAGE",null,languageValues);
     }
 
     private void updateMyDatabase(SQLiteDatabase db, int oldVersion, int newVersion){
@@ -43,7 +37,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             insertLanguage(db,"Python","Python jest calkiem przyjemny");
         }
         if (oldVersion < 2){
-            db.execSQL("ALTER TABLE LANGUAGE ADD COLUMN TYPE;");
+            db.execSQL("ALTER TABLE LANGUAGE ADD COLUMN FAVORITE NUMERIC;");
         }
     }
+
+    private static void insertLanguage(SQLiteDatabase db, String name, String description){
+        ContentValues languageValues = new ContentValues();
+        languageValues.put("NAME",name);
+        languageValues.put("DESCRIPTION",description);
+        db.insert("LANGUAGE",null,languageValues);
+    }
+
+
 }
